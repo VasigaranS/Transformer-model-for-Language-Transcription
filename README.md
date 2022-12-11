@@ -29,8 +29,8 @@ Three models were trained –
 1.The first model had a per device batch size of 16, learning rate of 1e-5 and 1 gradient accumulation step. It was trained on 4000 steps but due to the computational limitations, 2000 steps were completed. A checkpoint was created every 1000 steps. The training loss and validation loss were 0.1383 and 0.29559 respectively. The word error rate was 21.49%.
 2.The second model had a per device batch size of 8 and the gradient accumulation step was increased to two. This model was run for 3000 steps. The loss and WER at each checkpoint is given below –
 
-| Steps | Training loss | Validation loss | WER |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269 | 254 |
+| Steps   | Training loss | Validation loss | WER.  |
+| :------:| :-----------: | :-------------: | :---: | 
+| Seconds | 301           |             283 | 290   |  
 
 Clearly, the second model had a better performance, with a WER of 19.69% after 3000 steps.
