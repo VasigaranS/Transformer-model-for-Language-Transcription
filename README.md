@@ -29,7 +29,14 @@ The dataset is loaded by untaring the tar.gz file in drive. A data collector is 
 
 Three models were trained –
 
-1.The first model had a per device batch size of 16, learning rate of 1e-5 and 1 gradient accumulation step. It was trained on 4000 steps but due to the computational limitations, 2000 steps were completed. A checkpoint was created every 1000 steps. The training loss and validation loss were 0.0477 and 0.29057 respectively. The word error rate was 20.195746%. This is shown in model_training2.ipynb.
+1.The first model had a per device batch size of 16, learning rate of 1e-5 and 1 gradient accumulation step. It was trained on 4000 steps but due to the computational limitations, 2000 steps were completed. A checkpoint was created every 1000 steps. The training loss and validation loss were 0.0477 and 0.29057 respectively. The word error rate was 20.195746%. This is shown in model_training2.ipynb. The losses and the WER per checkpoint are given below -  
+
+| Steps   | Training loss | Validation loss | WER.  |
+| :------:| :-----------: | :-------------: | :---: | 
+| 500     | 0.3103        |        0.326575 | 23.87%|  
+| 1000    | 0.1383        |        0.295559 | 21.49%|
+| 1500    | 0.1325        |        0.281871 | 20.84%|
+| 2000    | 0.0477        |        0.290570 | 20.19%|
 
 2.The second model had a per device batch size of 8 and the gradient accumulation step was increased to two. This model was run for 3000 steps. The loss and WER at each checkpoint is given below –
 
@@ -39,7 +46,14 @@ Three models were trained –
 | 2000    | 0.047         |        0.290317 | 20.35%|
 | 3000    | 0.016         |        0.296569 | 19.70%|
 
-3. We performed further hyperparameter tuning by experimenting with the learning rate. The learning rate was increased to 1e-3 by keeping all the other parameters the same. The resulted in a high increase in the WER and the losses. This model was run for 2000 steps with checkpoints created every 500 steps. At the 2000th step, the training and validation losses were 2.8829 and 3.135914 respectively while the WER was 122.25. This is shown in model_training3.ipynb.
+3.We performed further hyperparameter tuning by experimenting with the learning rate. The learning rate was increased to 1e-3 by keeping all the other parameters the same. The resulted in a high increase in the WER and the losses. This model was run for 2000 steps with checkpoints created every 500 steps. At the 2000th step, the training and validation losses were 2.8829 and 3.135914 respectively while the WER was 122.25. This is shown in model_training3.ipynb. The loss and WER at each checkpoint is given below –
+
+| Steps   | Training loss | Validation loss | WER.   |
+| :------:| :-----------: | :-------------: | :---:  | 
+| 500     | 4.4594        |        4.065455	| 132.38%|  
+| 1000    | 3.3984        |        3.490493 | 106.75%| 
+| 1500    | 3.1814        |        3.251461 | 102.50%|
+| 2000    | 2.8829        |        3.135914 | 122.25%|
 
 Clearly, the second model had a better performance, with a WER of 19.70% after 3000 steps. This model is uploaded to Hugging face. -
 https://huggingface.co/Vasi001/whisper-small
